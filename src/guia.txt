@@ -1,0 +1,15 @@
+npm start
+instalar desde consola : sudo npm install -g json-server y pide password mac (1)
+desde consola para correr: json-server db.json --port 4000
+ 
+Terminologia REDUX:
+
+
+STORE: Contiene el state (1 por aplicacion)
+DISPATCH: Ejecuta una accion que actualizará el state
+ACTION : Objetos js, tienen un tipo y payload (Datos)
+SUBSCRIBE: Similar a un event listener para el state
+REDUCERS : Funciones, saben que hacer con las acciones y el payload
+
+
+

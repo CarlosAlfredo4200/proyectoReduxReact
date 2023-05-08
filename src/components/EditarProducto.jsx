@@ -1,9 +1,48 @@
-import React from 'react'
+import React from "react";
 
 const EditarProducto = () => {
   return (
-    <div>EditarProducto</div>
-  )
-}
+    <div className="row justify-container-center">
+    <div className="col-md-8">
+      <div className="card">
+        <div className="card-body">
+          <h2 className="text-center mb-4 font-weight-bold">
+            Editar nuevo producto
+          </h2>
 
-export default EditarProducto
+          <form>
+            <div className="form-group">
+              <label>Nombre Producto</label>
+
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Nombre del producto"
+                name="nombre"
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Precio Producto</label>
+
+              <input
+                type="number"
+                className="form-control"
+                placeholder="Precio del producto"
+                name="precio"
+              />
+            </div>
+
+          </form>
+
+          <button type="submit"
+              className="btn btn-primary font-weight-bold text-uppercase d-block w-100"
+          >Actualizar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  );
+};
+
+export default EditarProducto;
