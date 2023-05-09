@@ -12,4 +12,6 @@ SUBSCRIBE: Similar a un event listener para el state
 REDUCERS : Funciones, saben que hacer con las acciones y el payload
 
 
+installar redux :
+npm i react-redux redux redux-thunk
 
