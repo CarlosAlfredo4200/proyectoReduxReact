@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 //action redux
@@ -6,15 +6,26 @@ import { useDispatch, useSelector } from "react-redux";
 import { crearNuevoProductoActions } from "../actions/productoActions";
 const NUevoProducto = () => {
 
-const dispatch = useDispatch();
+  const [nombre, setNombre] = useState('')
+  const [precio, setPrecio] = useState('')
 
-  const agregarProducto = ()  => dispatch(crearNuevoProductoActions())
+
+  // utilizar useDispatch y te crea una funcion
+  const dispatch = useDispatch();
+
+  const agregarProducto = (producto) => dispatch(crearNuevoProductoActions(producto));
 
 
-  const submitNuevoProducto = (e) => {
+  const submitNuevoProducto = e => {
     e.preventDefault();
-
-    agregarProducto();
+    // validar formulario, revisar errores y crear el nuevo producto
+    if (nombre.trim() === '' || precio <= 0) {
+      return;
+    }
+    agregarProducto({ 
+      nombre,
+      precio
+    });
   }
   return (
     <div className="row justify-container-center">
@@ -34,6 +45,8 @@ const dispatch = useDispatch();
                   className="form-control"
                   placeholder="Nombre del producto"
                   name="nombre"
+                  value={nombre}
+                  onChange={e => setNombre(e.target.value)}
                 />
               </div>
 
@@ -45,14 +58,16 @@ const dispatch = useDispatch();
                   className="form-control"
                   placeholder="Precio del producto"
                   name="precio"
+                  value={precio}
+                  onChange={e => setPrecio(Number(e.target.value))}
                 />
               </div>
 
-            </form>
 
-            <button type="submit"
+              <button type="submit"
                 className="btn btn-primary font-weight-bold text-uppercase d-block w-100"
-            >Agregar</button>
+              >Agregar</button>
+            </form>
           </div>
         </div>
       </div>
